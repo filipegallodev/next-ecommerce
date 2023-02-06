@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Header from "@/components/Header";
+import ProductCard from "@/components/Product/ProductCard";
 
 export default function Home() {
   return (
@@ -9,8 +11,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Welcome to Next E-commerce!</h1>
+
+      <Header />
+      <main style={{ display: "flex", gap: "8px", padding: "16px" }}>
+        <ProductCard />
+        <ProductCard />
       </main>
     </>
   );
