@@ -13,7 +13,14 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main style={{ display: "flex", gap: "8px", padding: "16px" }}>
+      <main
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "32px",
+          padding: "16px",
+        }}
+      >
         <ProductCard />
         <ProductCard />
       </main>
