@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "@/components/Header";
 import ProductCard from "@/components/Product/ProductCard";
+import ProductSection from "@/components/Product/ProductSection";
 
 export default function Home() {
   return (
@@ -13,16 +14,8 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "32px",
-          padding: "16px",
-        }}
-      >
-        <ProductCard />
-        <ProductCard />
+      <main>
+        <ProductSection />
       </main>
     </>
   );

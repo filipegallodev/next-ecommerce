@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProductCard = () => {
+const ProductCard = ({ title, price, image, rating }: IProduct) => {
   return (
     <ProductContainer>
       <MainContent>
-        <Image
-          src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-          alt="Imagem"
-        />
+        <Image src={image} alt={title} />
         <SubContainer>
-          <Title>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</Title>
-          <Price>$109.95</Price>
+          <Title>
+            {title.length >= 41 ? `${title.slice(0, 40)}...` : title}
+          </Title>
+          <Price>${price}</Price>
         </SubContainer>
         <Rating>
-          *3.9 {"("}120{")"}
+          *{rating.rate} {"("}
+          {rating.count}
+          {")"}
         </Rating>
       </MainContent>
       <Button>Buy</Button>
@@ -22,9 +23,10 @@ const ProductCard = () => {
   );
 };
 
-const ProductContainer = styled.div`
-  height: 360px;
-  width: 320px;
+const ProductContainer = styled.li`
+  background-color: #fff;
+  height: 380px;
+  width: 340px;
   border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -49,29 +51,31 @@ const Image = styled.img`
 const SubContainer = styled.div`
   width: 100%;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
 `;
 
 const Title = styled.h3`
-  font-weight: 500;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #000;
 `;
 
 const Price = styled.span`
-  background-color: #555;
-  height: 30px;
-  padding: 6px 10px;
+  padding: 8px;
+  background-color: #444;
   border-radius: 4px;
-  color: #5f5;
-  font-size: 1.125rem;
-  font-weight: 700;
+  color: #fc5;
+  font-size: 1rem;
+  font-weight: 500;
 `;
 
 const Rating = styled.p`
   width: 100%;
   margin: 8px 0;
-  color: #fb5;
-  font-weight: 700;
+  color: #333;
+  font-weight: 500;
 `;
 
 const Button = styled.button`
@@ -80,7 +84,7 @@ const Button = styled.button`
   padding: 16px;
   color: #fff;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   transition: 0.3s;
   cursor: pointer;
   &:hover {
