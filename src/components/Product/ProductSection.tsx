@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { useAppSelector } from "@/hooks/useAppSelector";
+import { fetchProducts } from "@/store/reducers/product";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
 
 const ProductSection = () => {
-  const [products, setProducts] = useState<IProduct[]>();
-  const [maxProducts, setMaxProducts] = useState<number>(8);
+  const { data, error, loading } = useAppSelector(
+    (state: IReduxState) => state.product
+  );
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch("https://fakestoreapi.com/products/");
-        if (!response.ok) throw new Error("Error: " + response.status);
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {}
-    }
-    fetchProducts();
+    dispatch(fetchProducts());
   }, []);
 
-  if (!products) return null;
+  if (loading) return <p>Carregando...</p>;
+  if (error) return <p>{error}</p>;
+  if (!data) return null;
   return (
     <section>
       <ProductList>
-        {products.map((product) => (
+        {data.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </ProductList>

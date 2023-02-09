@@ -10,3 +10,11 @@ interface IProduct {
     count: number;
   };
 }
+
+interface IReduxState {
+  product: {
+    loading: boolean;
+    data: null | IProduct[];
+    error: null | string;
+  };
+}
