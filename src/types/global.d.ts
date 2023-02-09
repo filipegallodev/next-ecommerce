@@ -11,10 +11,19 @@ interface IProduct {
   };
 }
 
+interface ICart {
+  empty: boolean;
+  items: IProduct[];
+  totalPrice: number;
+}
+
+interface IProductState {
+  loading: boolean;
+  data: null | IProduct[];
+  error: null | string;
+}
+
 interface IReduxState {
-  product: {
-    loading: boolean;
-    data: null | IProduct[];
-    error: null | string;
-  };
+  product: IProductState;
+  cart: ICart;
 }

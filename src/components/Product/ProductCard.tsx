@@ -1,7 +1,12 @@
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { addProduct } from "@/store/reducers/cart";
 import React from "react";
 import styled from "styled-components";
 
-const ProductCard = ({ title, price, image, rating }: IProduct) => {
+const ProductCard = (data: IProduct) => {
+  const { title, price, image, rating } = data;
+  const dispatch = useAppDispatch();
+
   return (
     <ProductContainer>
       <MainContent>
@@ -22,7 +27,7 @@ const ProductCard = ({ title, price, image, rating }: IProduct) => {
           </Rating>
         </InfoContainer>
       </MainContent>
-      <Button>Buy</Button>
+      <Button onClick={() => dispatch(addProduct(data))}>Buy</Button>
     </ProductContainer>
   );
 };
