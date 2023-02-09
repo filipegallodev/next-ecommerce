@@ -1,11 +1,25 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { addProduct } from "@/store/reducers/cart";
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
 const ProductCard = (data: IProduct) => {
   const { title, price, image, rating } = data;
   const dispatch = useAppDispatch();
+
+  const [addedOnCart, setAddedOnCart] = useState<boolean>(false);
+  const [buttonText, setButtonText] = useState("Buy");
+  const buyButton = useRef<HTMLButtonElement>(null);
+
+  function handleBuyButton() {
+    dispatch(addProduct(data));
+    setButtonText("Added to cart!");
+    setAddedOnCart(true);
+    setTimeout(() => {
+      setAddedOnCart(false);
+      setButtonText("Buy");
+    }, 3000);
+  }
 
   return (
     <ProductContainer>
@@ -27,7 +41,9 @@ const ProductCard = (data: IProduct) => {
           </Rating>
         </InfoContainer>
       </MainContent>
-      <Button onClick={() => dispatch(addProduct(data))}>Buy</Button>
+      <Button ref={buyButton} onClick={handleBuyButton} disabled={addedOnCart}>
+        {buttonText}
+      </Button>
     </ProductContainer>
   );
 };
@@ -111,6 +127,11 @@ const Button = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #00c;
+  }
+  &:disabled {
+    background-color: #fc5;
+    color: #111;
+    cursor: not-allowed;
   }
 `;
 
