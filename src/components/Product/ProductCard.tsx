@@ -5,18 +5,22 @@ const ProductCard = ({ title, price, image, rating }: IProduct) => {
   return (
     <ProductContainer>
       <MainContent>
-        <Image src={image} alt={title} />
-        <SubContainer>
-          <Title>
-            {title.length >= 41 ? `${title.slice(0, 40)}...` : title}
-          </Title>
-          <Price>${price}</Price>
-        </SubContainer>
-        <Rating>
-          *{rating.rate} {"("}
-          {rating.count}
-          {")"}
-        </Rating>
+        <ImageContainer>
+          <Image src={image} alt={title} />
+        </ImageContainer>
+        <InfoContainer>
+          <TitleAndPriceContainer>
+            <Title>
+              {title.length >= 41 ? `${title.slice(0, 40)}...` : title}
+            </Title>
+            <Price>${price}</Price>
+          </TitleAndPriceContainer>
+          <Rating>
+            *{rating.rate} {"("}
+            {rating.count}
+            {")"}
+          </Rating>
+        </InfoContainer>
       </MainContent>
       <Button>Buy</Button>
     </ProductContainer>
@@ -24,11 +28,11 @@ const ProductCard = ({ title, price, image, rating }: IProduct) => {
 };
 
 const ProductContainer = styled.li`
-  background-color: #fff;
-  height: 380px;
-  width: 340px;
+  background-color: #f5f5f5;
+  height: 400px;
+  width: 360px;
   border-radius: 8px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -36,9 +40,17 @@ const ProductContainer = styled.li`
 `;
 
 const MainContent = styled.div`
-  padding: 0 12px 0 12px;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ImageContainer = styled.div`
+  background-color: #fff;
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
@@ -48,7 +60,12 @@ const Image = styled.img`
   max-height: 172px;
 `;
 
-const SubContainer = styled.div`
+const InfoContainer = styled.div`
+  width: 100%;
+  padding: 12px;
+`;
+
+const TitleAndPriceContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: flex-start;

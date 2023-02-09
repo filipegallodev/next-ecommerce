@@ -13,19 +13,19 @@ const ProductSection = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
 
   if (loading) return <p>Carregando...</p>;
   if (error) return <p>{error}</p>;
   if (!data) return null;
   return (
-    <section>
+    <div>
       <ProductList>
         {data.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </ProductList>
-    </section>
+    </div>
   );
 };
 

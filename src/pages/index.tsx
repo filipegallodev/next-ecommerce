@@ -15,7 +15,10 @@ export default function Home() {
 
       <Header />
       <main>
-        <ProductSection />
+        <section>
+          <h2>Best deals</h2>
+          <ProductSection />
+        </section>
       </main>
     </>
   );
