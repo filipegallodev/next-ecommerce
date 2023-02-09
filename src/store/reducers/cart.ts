@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "cart",
   initialState: <ICart>{
+    open: false,
     empty: true,
     items: [],
     totalPrice: 0,
@@ -15,9 +16,15 @@ const slice = createSlice({
       state.items.push(action.payload);
       state.totalPrice += action.payload.price;
     },
+    openCart(state) {
+      state.open = true;
+    },
+    closeCart(state) {
+      state.open = false;
+    },
   },
 });
 
-export const { addProduct } = slice.actions;
+export const { addProduct, openCart, closeCart } = slice.actions;
 
 export default slice.reducer;

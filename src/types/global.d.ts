@@ -12,6 +12,7 @@ interface IProduct {
 }
 
 interface ICart {
+  open: boolean;
   empty: boolean;
   items: IProduct[];
   totalPrice: number;

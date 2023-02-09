@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Header from "@/components/Header";
-import ProductCard from "@/components/Product/ProductCard";
 import ProductSection from "@/components/Product/ProductSection";
 
 export default function Home() {
