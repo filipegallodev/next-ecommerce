@@ -117,7 +117,7 @@ const Rating = styled.p`
 `;
 
 const Button = styled.button`
-  background-color: #11f;
+  background-color: #3747d6;
   width: 100%;
   padding: 16px;
   color: #fff;
@@ -126,11 +126,11 @@ const Button = styled.button`
   transition: 0.3s;
   cursor: pointer;
   &:hover {
-    background-color: #00c;
+    background-color: #1425c0;
   }
   &:disabled {
-    background-color: #fc5;
-    color: #111;
+    background-color: #333;
+    color: #fc5;
     cursor: not-allowed;
   }
 `;
