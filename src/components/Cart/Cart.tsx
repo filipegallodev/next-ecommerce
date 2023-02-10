@@ -11,7 +11,7 @@ const Cart = () => {
 
 const Button = styled.button`
   padding: 8px;
-  background-color: #444;
+  background-color: #333;
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
