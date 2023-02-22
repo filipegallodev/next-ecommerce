@@ -18,7 +18,7 @@ const ProductCard = (data: IProduct) => {
     setTimeout(() => {
       setAddedOnCart(false);
       setButtonText("Buy");
-    }, 3000);
+    }, 750);
   }
 
   return (

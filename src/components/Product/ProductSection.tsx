@@ -3,6 +3,7 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import { fetchProducts } from "@/store/reducers/product";
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import Loading from "../Loading";
 import ProductCard from "./ProductCard";
 
 const ProductSection = () => {
@@ -15,7 +16,7 @@ const ProductSection = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
   if (!data) return null;
   return (
