@@ -35,7 +35,6 @@ const ProductList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 32px;
-  padding: 16px;
 `;
 
 export default ProductSection;
