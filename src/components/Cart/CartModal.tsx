@@ -30,7 +30,9 @@ const CartModal = () => {
           </InfoContainer>
         </CartContent>
       ) : (
-        <p>Carrinho vazio.</p>
+        <InfoContainer>
+          <InfoText>Your cart is empty!</InfoText>
+        </InfoContainer>
       )}
     </ModalContainer>
   );
