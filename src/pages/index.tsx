@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import ProductSection from "@/components/Product/ProductSection";
 import styled from "styled-components";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <ProductSection />
         </SectionContainer>
       </main>
+      <Footer />
     </>
   );
 }
