@@ -26,14 +26,14 @@ const FooterText = styled.p`
 `;
 
 const NameLink = styled.a`
-  color: #fb5;
+  color: #fff;
   font-weight: 600;
   background-color: #111;
   padding: 2px;
   border-radius: 4px;
   transition: 0.3s;
   &:hover {
-    color: #fff;
+    color: #fb5;
   }
 `;
 

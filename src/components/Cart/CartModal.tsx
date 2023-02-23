@@ -14,16 +14,21 @@ const CartModal = () => {
 
   return (
     <ModalContainer>
-      <Button onClick={() => dispatch(closeCart())}>Close Cart</Button>
+      <ExitButton onClick={() => dispatch(closeCart())}>Close Cart</ExitButton>
       {!empty ? (
-        <div>
+        <CartContent>
           <CartItemContainer>
             {items.map((product) => (
               <CartItem key={product.id} {...product} />
             ))}
           </CartItemContainer>
-          <p>{totalPrice}</p>
-        </div>
+          <InfoContainer>
+            <InfoText>
+              Total: <Price>${totalPrice.toFixed(2)}</Price>
+            </InfoText>
+            <FinishButton>Buy</FinishButton>
+          </InfoContainer>
+        </CartContent>
       ) : (
         <p>Carrinho vazio.</p>
       )}
@@ -54,12 +59,53 @@ const ModalContainer = styled.div`
   overflow-y: auto;
 `;
 
-const Button = styled.button`
+const ExitButton = styled.button`
   background-color: #f55;
   color: #fff;
   padding: 8px;
+  margin: 1rem;
   border-radius: 8px;
   cursor: pointer;
+`;
+
+const CartContent = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+`;
+
+const InfoContainer = styled.div`
+  width: 100%;
+  background-color: #fff;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const InfoText = styled.p`
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+const Price = styled.span`
+  color: #5b5;
+`;
+
+const FinishButton = styled.button`
+  padding: 1rem 2rem;
+  background-color: #fb5;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222;
+  transition: 0.3s;
+  &:hover {
+    background-color: #fc6;
+  }
 `;
 
 export default CartModal;

@@ -37,6 +37,6 @@ const SectionContainer = styled.section`
 
 const SubTitle = styled.h2`
   font-size: 1.75rem;
-  margin: 2rem 0;
+  margin: 2rem 1rem;
   font-weight: 500;
 `;
