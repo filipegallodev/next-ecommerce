@@ -11,8 +11,23 @@ const slice = createSlice({
   reducers: {
     addProduct(state, action) {
       state.empty = false;
-      state.items.push(action.payload);
       state.totalPrice += action.payload.price;
+
+      state.items.filter((product) => {
+        if (product.id === action.payload.id && product.quantity) {
+          product.quantity += 1;
+          product.price += action.payload.price;
+          return product;
+        }
+        return product;
+      });
+
+      if (!state.items.find((product) => product.id === action.payload.id)) {
+        state.items.push({
+          ...action.payload,
+          quantity: 1,
+        });
+      }
     },
     openCart(state) {
       state.open = true;
