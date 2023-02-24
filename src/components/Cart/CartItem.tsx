@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const CartItem = (data: IProduct) => {
   const { title, image, price } = data;
-
   const dispatch = useAppDispatch();
 
   return (

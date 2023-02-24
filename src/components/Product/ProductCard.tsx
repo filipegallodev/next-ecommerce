@@ -1,7 +1,7 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { addProduct } from "@/store/reducers/cart";
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const ProductCard = (data: IProduct) => {
   const { title, price, image, rating } = data;
@@ -10,6 +10,11 @@ const ProductCard = (data: IProduct) => {
   const [addedOnCart, setAddedOnCart] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState("Buy");
   const buyButton = useRef<HTMLButtonElement>(null);
+  const [imageLoading, setImageLoading] = useState<boolean>(true);
+
+  function handleImageLoad() {
+    setImageLoading(false);
+  }
 
   function handleBuyButton() {
     dispatch(addProduct(data));
@@ -25,7 +30,8 @@ const ProductCard = (data: IProduct) => {
     <ProductContainer>
       <MainContent>
         <ImageContainer>
-          <Image src={image} alt={title} />
+          {imageLoading && <ImageSkeleton />}
+          <Image src={image} alt={title} onLoad={handleImageLoad} />
         </ImageContainer>
         <InfoContainer>
           <TitleAndPriceContainer>
@@ -71,14 +77,34 @@ const MainContent = styled.div`
 const ImageContainer = styled.div`
   background-color: #fff;
   width: 100%;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
 `;
 
 const Image = styled.img`
-  margin: 24px 0;
+  grid-area: 1/1;
+  margin: 24px auto;
   max-height: 172px;
+`;
+
+const skeleton = keyframes`
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -200%;
+  }
+`;
+
+const ImageSkeleton = styled.div`
+  grid-area: 1/1;
+  height: 220px;
+  width: 360px;
+  background-image: linear-gradient(90deg, #eee 0px, #fff 50%, #eee 100%);
+  background-color: #eee;
+  background-size: 200%;
+  animation: ${skeleton} 1.5s infinite linear;
 `;
 
 const InfoContainer = styled.div`
