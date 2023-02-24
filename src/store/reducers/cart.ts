@@ -29,6 +29,14 @@ const slice = createSlice({
         });
       }
     },
+    removeProduct(state, action) {
+      state.items = state.items.filter((product) => {
+        if (product.id !== action.payload.id) return product;
+        state.totalPrice -= product.price;
+      });
+
+      if (state.items.length === 0) state.empty = true;
+    },
     openCart(state) {
       state.open = true;
     },
@@ -38,6 +46,6 @@ const slice = createSlice({
   },
 });
 
-export const { addProduct, openCart, closeCart } = slice.actions;
+export const { addProduct, removeProduct, openCart, closeCart } = slice.actions;
 
 export default slice.reducer;

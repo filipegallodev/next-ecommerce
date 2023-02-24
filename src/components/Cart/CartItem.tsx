@@ -1,8 +1,12 @@
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { removeProduct } from "@/store/reducers/cart";
 import React from "react";
 import styled from "styled-components";
 
 const CartItem = (data: IProduct) => {
   const { title, image, price } = data;
+
+  const dispatch = useAppDispatch();
 
   return (
     <ItemCard>
@@ -11,6 +15,7 @@ const CartItem = (data: IProduct) => {
         <Title>{title}</Title>
       </ImageAndTitleContainer>
       <span>${price}</span>
+      <button onClick={() => dispatch(removeProduct(data))}>X</button>
     </ItemCard>
   );
 };
