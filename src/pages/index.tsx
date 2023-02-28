@@ -32,7 +32,11 @@ const SectionContainer = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 0 auto;
+  margin: 32px auto;
+  background-color: #eee;
+  padding-bottom: 2rem;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
 `;
 
 const SubTitle = styled.h2`

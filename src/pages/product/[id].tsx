@@ -14,7 +14,7 @@ const Product = () => {
   const { loading, error } = useAppSelector(
     (state: IReduxState) => state.product
   );
-  let { product } = useAppSelector((state: IReduxState) => state.product);
+  const { product } = useAppSelector((state: IReduxState) => state.product);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
