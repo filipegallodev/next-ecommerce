@@ -22,6 +22,7 @@ interface ICart {
 interface IProductState {
   loading: boolean;
   data: null | IProduct[];
+  product: null | IProduct;
   error: null | string;
 }
 

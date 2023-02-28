@@ -1,10 +1,11 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { addProduct } from "@/store/reducers/cart";
+import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 const ProductCard = (data: IProduct) => {
-  const { title, price, image, rating } = data;
+  const { title, price, image, rating, id } = data;
   const dispatch = useAppDispatch();
 
   const [addedOnCart, setAddedOnCart] = useState<boolean>(false);
@@ -12,9 +13,7 @@ const ProductCard = (data: IProduct) => {
   const buyButton = useRef<HTMLButtonElement>(null);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
 
-  function handleImageLoad() {
-    setImageLoading(false);
-  }
+  const router = useRouter();
 
   function handleBuyButton() {
     dispatch(addProduct(data));
@@ -28,10 +27,14 @@ const ProductCard = (data: IProduct) => {
 
   return (
     <ProductContainer>
-      <MainContent>
+      <MainContent onClick={() => router.push(`/product/${id}`)}>
         <ImageContainer>
           {imageLoading && <ImageSkeleton />}
-          <Image src={image} alt={title} onLoad={handleImageLoad} />
+          <Image
+            src={image}
+            alt={title}
+            onLoad={() => setImageLoading(false)}
+          />
         </ImageContainer>
         <InfoContainer>
           <TitleAndPriceContainer>
@@ -59,11 +62,15 @@ const ProductContainer = styled.li`
   height: 400px;
   width: 360px;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const MainContent = styled.div`
@@ -72,6 +79,7 @@ const MainContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const ImageContainer = styled.div`
@@ -149,7 +157,7 @@ const Button = styled.button`
   color: #fff;
   font-size: 1.25rem;
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.1s;
   cursor: pointer;
   &:hover {
     background-color: #1425c0;
