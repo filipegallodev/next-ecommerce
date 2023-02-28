@@ -13,8 +13,9 @@ const ProductSection = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    if (data) return;
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, [data, dispatch]);
 
   if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
