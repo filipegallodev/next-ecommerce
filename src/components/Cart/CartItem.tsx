@@ -1,8 +1,10 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { removeProduct } from "@/store/reducers/cart";
+import { addProduct, removeProduct } from "@/store/reducers/cart";
 import React from "react";
 import styled from "styled-components";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
 const CartItem = (data: IProduct) => {
   const { title, image, price, amount } = data;
@@ -17,12 +19,16 @@ const CartItem = (data: IProduct) => {
         <Title>{title}</Title>
         <Details>
           <AmountAndPriceContainer>
-            <div>+ | {amount} | -</div>
+            <ControlAmount>
+              <RemoveIcon />
+              <Amount>{amount}</Amount>
+              <AddIcon onClick={() => dispatch(addProduct(data))} />
+            </ControlAmount>
             <Price>${price}</Price>
           </AmountAndPriceContainer>
-          <button onClick={() => dispatch(removeProduct(data))}>
+          <RemoveItemButton onClick={() => dispatch(removeProduct(data))}>
             <DeleteRoundedIcon />
-          </button>
+          </RemoveItemButton>
         </Details>
       </ItemInfo>
     </ItemCard>
@@ -81,9 +87,28 @@ const AmountAndPriceContainer = styled.div`
   justify-content: space-between;
 `;
 
+const ControlAmount = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.125rem;
+`;
+
+const Amount = styled.span`
+  width: 32px;
+  text-align: center;
+`;
+
 const Price = styled.span`
   color: #5b5;
+  font-size: 1.125rem;
   font-weight: 500;
+`;
+
+const RemoveItemButton = styled.button`
+  cursor: pointer;
+  margin: 0 auto;
 `;
 
 export default CartItem;
