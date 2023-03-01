@@ -1,5 +1,9 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { addProduct, removeProduct } from "@/store/reducers/cart";
+import {
+  addProduct,
+  removeOneProduct,
+  removeProduct,
+} from "@/store/reducers/cart";
 import React from "react";
 import styled from "styled-components";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
@@ -20,11 +24,11 @@ const CartItem = (data: IProduct) => {
         <Details>
           <AmountAndPriceContainer>
             <ControlAmount>
-              <RemoveIcon />
+              <RemoveIcon onClick={() => dispatch(removeOneProduct(data))} />
               <Amount>{amount}</Amount>
               <AddIcon onClick={() => dispatch(addProduct(data))} />
             </ControlAmount>
-            <Price>${price}</Price>
+            <Price>${price.toFixed(2)}</Price>
           </AmountAndPriceContainer>
           <RemoveItemButton onClick={() => dispatch(removeProduct(data))}>
             <DeleteRoundedIcon />

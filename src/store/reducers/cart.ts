@@ -16,7 +16,6 @@ const slice = createSlice({
       state.items.filter((product) => {
         if (product.id === action.payload.id && product.amount) {
           product.amount += 1;
-          product.price += action.payload.price;
           return product;
         }
         return product;
@@ -29,10 +28,26 @@ const slice = createSlice({
         });
       }
     },
+    removeOneProduct(state, action) {
+      state.totalPrice -= action.payload.price;
+
+      state.items = state.items.filter((product) => {
+        if (product.id !== action.payload.id) return product;
+        if (product.amount) {
+          product.amount -= 1;
+          console.log(product.amount);
+          if (product.amount >= 1) return product;
+        }
+      });
+
+      if (state.items.length === 0) state.empty = true;
+    },
     removeProduct(state, action) {
       state.items = state.items.filter((product) => {
         if (product.id !== action.payload.id) return product;
-        state.totalPrice -= product.price;
+        state.totalPrice -= product.amount
+          ? product.amount * product.price
+          : product.price;
       });
 
       if (state.items.length === 0) state.empty = true;
@@ -46,6 +61,12 @@ const slice = createSlice({
   },
 });
 
-export const { addProduct, removeProduct, openCart, closeCart } = slice.actions;
+export const {
+  addProduct,
+  removeOneProduct,
+  removeProduct,
+  openCart,
+  closeCart,
+} = slice.actions;
 
 export default slice.reducer;
