@@ -5,6 +5,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import CartItem from "./CartItem";
 import CartItemContainer from "./CartItemContainer";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 const CartModal = () => {
   const dispatch = useAppDispatch();
@@ -14,7 +15,9 @@ const CartModal = () => {
 
   return (
     <ModalContainer>
-      <ExitButton onClick={() => dispatch(closeCart())}>Close Cart</ExitButton>
+      <ExitButton onClick={() => dispatch(closeCart())}>
+        <CloseRoundedIcon style={{ transform: "scale(1.2)" }} />
+      </ExitButton>
       {!empty ? (
         <CartContent>
           <CartItemContainer>
@@ -66,8 +69,12 @@ const ExitButton = styled.button`
   color: #fff;
   padding: 8px;
   margin: 1rem;
-  border-radius: 8px;
+  border-radius: 16px;
   cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: #f11;
+  }
 `;
 
 const CartContent = styled.div`
@@ -78,6 +85,7 @@ const CartContent = styled.div`
 
 const InfoContainer = styled.div`
   width: 100%;
+  height: 98px;
   background-color: #fff;
   padding: 1.5rem;
   display: flex;

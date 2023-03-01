@@ -8,18 +8,24 @@ const Cart = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Button onClick={() => dispatch(openCart())}>
-      <ShoppingCartOutlinedIcon />
-    </Button>
+    <CartButton onClick={() => dispatch(openCart())}>
+      <ShoppingCartOutlinedIcon style={{ transform: "scale(1.2)" }} />
+    </CartButton>
   );
 };
 
-const Button = styled.button`
-  padding: 8px;
-  background-color: #333;
-  color: #fff;
+const CartButton = styled.button`
+  padding: 14px;
+  background-color: #f5f5f5;
+  color: #333;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: #fff;
+    color: #fb5;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export default Cart;
