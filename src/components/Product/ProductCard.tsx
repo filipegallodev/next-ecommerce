@@ -3,8 +3,8 @@ import { addProduct } from "@/store/reducers/cart";
 import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
+import Rating from "@mui/material/Rating";
 
 const ProductCard = (data: IProduct) => {
   const { title, price, image, rating, id } = data;
@@ -45,12 +45,16 @@ const ProductCard = (data: IProduct) => {
             </Title>
             <Price>${price}</Price>
           </TitleAndPriceContainer>
-          <Rating>
-            <StarRateRoundedIcon />
-            {rating.rate} {"("}
+          <RatingContainer>
+            {rating.rate}
+            <Rating
+              name="half-rating-read"
+              defaultValue={rating.rate}
+              precision={0.5}
+              readOnly
+            />
             {rating.count}
-            {")"}
-          </Rating>
+          </RatingContainer>
         </InfoContainer>
       </MainContent>
       <BuyButton
@@ -151,7 +155,7 @@ const Price = styled.span`
   font-weight: 500;
 `;
 
-const Rating = styled.p`
+const RatingContainer = styled.p`
   display: flex;
   align-items: center;
   gap: 4px;
