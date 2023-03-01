@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
+import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
 
 const ProductCard = (data: IProduct) => {
   const { title, price, image, rating, id } = data;
@@ -52,9 +53,14 @@ const ProductCard = (data: IProduct) => {
           </Rating>
         </InfoContainer>
       </MainContent>
-      <Button ref={buyButton} onClick={handleBuyButton} disabled={addedOnCart}>
+      <BuyButton
+        ref={buyButton}
+        onClick={handleBuyButton}
+        disabled={addedOnCart}
+      >
+        <AddShoppingCartRoundedIcon />
         {buttonText}
-      </Button>
+      </BuyButton>
     </ProductContainer>
   );
 };
@@ -155,7 +161,11 @@ const Rating = styled.p`
   font-weight: 500;
 `;
 
-const Button = styled.button`
+const BuyButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background-color: #3747d6;
   width: 100%;
   padding: 16px;

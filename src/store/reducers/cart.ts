@@ -14,8 +14,8 @@ const slice = createSlice({
       state.totalPrice += action.payload.price;
 
       state.items.filter((product) => {
-        if (product.id === action.payload.id && product.quantity) {
-          product.quantity += 1;
+        if (product.id === action.payload.id && product.amount) {
+          product.amount += 1;
           product.price += action.payload.price;
           return product;
         }
@@ -25,7 +25,7 @@ const slice = createSlice({
       if (!state.items.find((product) => product.id === action.payload.id)) {
         state.items.push({
           ...action.payload,
-          quantity: 1,
+          amount: 1,
         });
       }
     },

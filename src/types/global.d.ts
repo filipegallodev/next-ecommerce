@@ -9,7 +9,7 @@ interface IProduct {
     rate: number;
     count: number;
   };
-  quantity: null | number;
+  amount: null | number;
 }
 
 interface ICart {
