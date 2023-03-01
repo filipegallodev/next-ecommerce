@@ -37,6 +37,9 @@ const SectionContainer = styled.section`
   padding-bottom: 2rem;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
+  @media (max-width: 1600px) {
+    margin: 32px 24px;
+  }
 `;
 
 const SubTitle = styled.h2`

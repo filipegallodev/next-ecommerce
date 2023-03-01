@@ -3,6 +3,7 @@ import { addProduct } from "@/store/reducers/cart";
 import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 
 const ProductCard = (data: IProduct) => {
   const { title, price, image, rating, id } = data;
@@ -44,7 +45,8 @@ const ProductCard = (data: IProduct) => {
             <Price>${price}</Price>
           </TitleAndPriceContainer>
           <Rating>
-            *{rating.rate} {"("}
+            <StarRateRoundedIcon />
+            {rating.rate} {"("}
             {rating.count}
             {")"}
           </Rating>
@@ -144,6 +146,9 @@ const Price = styled.span`
 `;
 
 const Rating = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 4px;
   width: 100%;
   margin: 8px 0;
   color: #333;
