@@ -155,7 +155,7 @@ const Price = styled.span`
   font-weight: 500;
 `;
 
-const RatingContainer = styled.p`
+export const RatingContainer = styled.p`
   display: flex;
   align-items: center;
   gap: 4px;
@@ -165,7 +165,7 @@ const RatingContainer = styled.p`
   font-weight: 500;
 `;
 
-const BuyButton = styled.button`
+export const BuyButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
