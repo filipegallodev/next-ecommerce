@@ -62,6 +62,7 @@ const ModalContainer = styled.div`
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   animation: ${slideToLeft} 0.2s linear forwards;
   overflow-y: auto;
+  z-index: 99999;
 `;
 
 const ExitButton = styled.button`
