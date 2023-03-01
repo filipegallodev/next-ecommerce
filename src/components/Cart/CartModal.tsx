@@ -66,15 +66,15 @@ const ModalContainer = styled.div`
 `;
 
 const ExitButton = styled.button`
-  background-color: #f55;
+  background-color: #e00;
   color: #fff;
   padding: 8px;
   margin: 1rem;
-  border-radius: 16px;
+  border-radius: 24px;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background-color: #f11;
+    background-color: #f55;
   }
 `;
 

@@ -20,7 +20,12 @@ const CartItem = (data: IProduct) => {
         <Image src={image} alt={title} />
       </ImageContainer>
       <ItemInfo>
-        <Title>{title}</Title>
+        <HeaderInfo>
+          <Title>{title}</Title>
+          <RemoveButton>
+            <DeleteRoundedIcon onClick={() => dispatch(removeProduct(data))} />
+          </RemoveButton>
+        </HeaderInfo>
         <Details>
           <AmountAndPriceContainer>
             <ControlAmount>
@@ -30,9 +35,6 @@ const CartItem = (data: IProduct) => {
             </ControlAmount>
             <Price>${price.toFixed(2)}</Price>
           </AmountAndPriceContainer>
-          <RemoveItemButton onClick={() => dispatch(removeProduct(data))}>
-            <DeleteRoundedIcon />
-          </RemoveItemButton>
         </Details>
       </ItemInfo>
     </ItemCard>
@@ -74,9 +76,25 @@ const ItemInfo = styled.div`
   gap: 16px;
 `;
 
+const HeaderInfo = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+`;
+
 const Title = styled.h3`
   font-size: 0.875rem;
   font-weight: 500;
+`;
+
+const RemoveButton = styled.button`
+  color: #e00;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    color: #f55;
+  }
 `;
 
 const Details = styled.div`
@@ -108,11 +126,6 @@ const Price = styled.span`
   color: #5b5;
   font-size: 1.125rem;
   font-weight: 500;
-`;
-
-const RemoveItemButton = styled.button`
-  cursor: pointer;
-  margin: 0 auto;
 `;
 
 export default CartItem;
