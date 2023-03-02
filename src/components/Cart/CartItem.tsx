@@ -5,7 +5,7 @@ import {
   removeProduct,
 } from "@/store/reducers/cart";
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
@@ -41,6 +41,17 @@ const CartItem = (data: IProduct) => {
   );
 };
 
+const slideToLeft = keyframes`
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+`;
+
 const ItemCard = styled.li`
   display: flex;
   align-items: flex-start;
@@ -48,6 +59,7 @@ const ItemCard = styled.li`
   background-color: #eee;
   border-radius: 4px;
   overflow: hidden;
+  animation: ${slideToLeft} 0.2s linear forwards;
 `;
 
 const ImageContainer = styled.div`

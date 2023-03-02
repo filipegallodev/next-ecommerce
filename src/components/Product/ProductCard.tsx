@@ -69,6 +69,15 @@ const ProductCard = (data: IProduct) => {
   );
 };
 
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 const ProductContainer = styled.li`
   background-color: #f5f5f5;
   height: 400px;
@@ -80,6 +89,7 @@ const ProductContainer = styled.li`
   flex-direction: column;
   justify-content: space-between;
   transition: 0.3s;
+  animation: ${fade} 0.3s linear forwards;
   &:hover {
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3);
   }
