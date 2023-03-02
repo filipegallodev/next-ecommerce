@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
-import { closeCart } from "@/store/reducers/cart";
+import { clearCart, closeCart } from "@/store/reducers/cart";
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import CartItem from "./CartItem";
@@ -15,9 +15,14 @@ const CartModal = () => {
 
   return (
     <ModalContainer>
-      <ExitButton onClick={() => dispatch(closeCart())}>
-        <CloseRoundedIcon style={{ transform: "scale(1.2)" }} />
-      </ExitButton>
+      <ModalControl>
+        <ExitButton onClick={() => dispatch(closeCart())}>
+          <CloseRoundedIcon style={{ transform: "scale(1.2)" }} />
+        </ExitButton>
+        {!empty && (
+          <ClearCart onClick={() => dispatch(clearCart())}>Clear All</ClearCart>
+        )}
+      </ModalControl>
       {!empty ? (
         <CartContent>
           <InfoContainer>
@@ -65,16 +70,38 @@ const ModalContainer = styled.div`
   z-index: 99999;
 `;
 
+const ModalControl = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+`;
+
 const ExitButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #e00;
   color: #fff;
-  padding: 8px;
-  margin: 1rem;
+  padding: 10px;
   border-radius: 24px;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
     background-color: #f55;
+  }
+`;
+
+const ClearCart = styled.button`
+  background-color: #f55;
+  color: #fff;
+  padding: 12px;
+  font-size: 1.125rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: #f88;
   }
 `;
 

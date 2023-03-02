@@ -15,6 +15,7 @@ const Cart = () => {
       setTotalItems(
         items.reduce((acc, item) => acc + (item.amount ? item.amount : 0), 0)
       );
+    if (items.length === 0) setTotalItems(0);
   }, [items]);
 
   return (

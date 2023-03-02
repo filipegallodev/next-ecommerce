@@ -66,6 +66,12 @@ const slice = createSlice({
       }
       saveCart(state.items, state.totalPrice);
     },
+    clearCart(state) {
+      state.empty = true;
+      state.items = [];
+      state.totalPrice = 0;
+      saveCart(state.items, state.totalPrice);
+    },
     openCart(state) {
       state.open = true;
     },
@@ -79,6 +85,7 @@ export const {
   addProduct,
   removeOneProduct,
   removeProduct,
+  clearCart,
   openCart,
   closeCart,
 } = slice.actions;
