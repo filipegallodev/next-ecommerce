@@ -1,13 +1,13 @@
-import { loadCart, saveCart } from "@/helper/localStorage";
+import { loadCartItems, loadCartPrice, saveCart } from "@/helper/localStorage";
 import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
   name: "cart",
   initialState: {
     open: false,
-    empty: loadCart() ? false : true,
-    items: loadCart() ? loadCart() : <IProduct[]>[],
-    totalPrice: 0,
+    empty: loadCartItems() ? false : true,
+    items: loadCartItems() ? loadCartItems() : <IProduct[]>[],
+    totalPrice: loadCartPrice(),
   },
   reducers: {
     addProduct(state, action) {
@@ -32,7 +32,7 @@ const slice = createSlice({
           amount: 1,
         });
       }
-      saveCart(state.items);
+      saveCart(state.items, state.totalPrice);
     },
     removeOneProduct(state, action) {
       state.totalPrice -= action.payload.price;
@@ -46,8 +46,11 @@ const slice = createSlice({
         }
       });
 
-      if (state.items.length === 0) state.empty = true;
-      saveCart(state.items);
+      if (state.items.length === 0) {
+        state.empty = true;
+        state.totalPrice = 0;
+      }
+      saveCart(state.items, state.totalPrice);
     },
     removeProduct(state, action) {
       state.items = state.items.filter((product: IProduct) => {
@@ -57,8 +60,11 @@ const slice = createSlice({
           : product.price;
       });
 
-      if (state.items.length === 0) state.empty = true;
-      saveCart(state.items);
+      if (state.items.length === 0) {
+        state.empty = true;
+        state.totalPrice = 0;
+      }
+      saveCart(state.items, state.totalPrice);
     },
     openCart(state) {
       state.open = true;

@@ -20,17 +20,17 @@ const CartModal = () => {
       </ExitButton>
       {!empty ? (
         <CartContent>
-          <CartItemContainer>
-            {items.map((product) => (
-              <CartItem key={product.id} {...product} />
-            ))}
-          </CartItemContainer>
           <InfoContainer>
             <InfoText>
               Total: <Price>${totalPrice.toFixed(2)}</Price>
             </InfoText>
             <FinishButton>Buy</FinishButton>
           </InfoContainer>
+          <CartItemContainer>
+            {items.map((product) => (
+              <CartItem key={product.id} {...product} />
+            ))}
+          </CartItemContainer>
         </CartContent>
       ) : (
         <InfoContainer>
@@ -80,7 +80,7 @@ const ExitButton = styled.button`
 
 const CartContent = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: space-between;
 `;
 
