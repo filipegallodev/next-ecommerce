@@ -22,8 +22,8 @@ const Cart = () => {
     <div>
       <CartButton onClick={() => dispatch(openCart())}>
         <ShoppingCartOutlinedIcon style={{ transform: "scale(1.2)" }} />
+        <CartItemAmount>{totalItems}</CartItemAmount>
       </CartButton>
-      <CartItemAmount>{totalItems}</CartItemAmount>
     </div>
   );
 };
@@ -46,12 +46,16 @@ const CartButton = styled.button`
 `;
 
 const CartItemAmount = styled.span`
+  background-color: #333;
+  border-radius: 4px;
+  width: 30px;
+  padding: 2px 0px;
   position: absolute;
-  top: 33px;
-  right: 35px;
-  color: #f55;
+  top: 25px;
+  right: 25px;
+  color: #fb5;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 export default Cart;
