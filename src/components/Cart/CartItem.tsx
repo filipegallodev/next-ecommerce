@@ -76,6 +76,7 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   max-height: 64px;
+  max-width: 80px;
 `;
 
 const ItemInfo = styled.div`

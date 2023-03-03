@@ -167,8 +167,8 @@ const Price = styled.span`
   background-color: #444;
   border-radius: 4px;
   color: #fc5;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.125rem;
+  font-weight: 600;
 `;
 
 export const RatingContainer = styled.p`
@@ -186,7 +186,7 @@ export const BuyButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #3747d6;
+  background-color: #424fc2;
   width: 100%;
   padding: 16px;
   color: #fff;
@@ -195,7 +195,7 @@ export const BuyButton = styled.button`
   transition: 0.1s;
   cursor: pointer;
   &:hover {
-    background-color: #1425c0;
+    background-color: #1a29b1;
   }
   &:disabled {
     background-color: #333;

@@ -43,11 +43,19 @@ const CartButton = styled.button`
     color: #fb5;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   }
+  @media (max-width: 500px) {
+    position: fixed;
+    right: 8px;
+    top: 8px;
+    z-index: 9999999;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const CartItemAmount = styled.span`
   background-color: #333;
-  border-radius: 4px;
+  box-shadow: 0px 0px 4px rgb(255, 187, 85, 0.5);
+  border-radius: 6px;
   width: 28px;
   padding: 2px 0px;
   position: absolute;
@@ -56,6 +64,13 @@ const CartItemAmount = styled.span`
   color: #fb5;
   font-size: 1rem;
   font-weight: 500;
+  @media (max-width: 500px) {
+    position: fixed;
+    right: 2px;
+    top: 2px;
+    z-index: 9;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export default Cart;

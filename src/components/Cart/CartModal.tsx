@@ -85,11 +85,11 @@ const ModalContainer = styled.div`
   right: 0;
   height: 100vh;
   width: 560px;
-  background-color: #333;
+  background-color: #252525;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   animation: ${slideToLeft} 0.2s linear forwards;
   overflow-y: auto;
-  z-index: 99999;
+  z-index: 99;
   &.close {
     animation: ${slideToRight} 0.2s linear forwards;
   }
