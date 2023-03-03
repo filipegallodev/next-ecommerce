@@ -48,13 +48,13 @@ const CartButton = styled.button`
 const CartItemAmount = styled.span`
   background-color: #333;
   border-radius: 4px;
-  width: 30px;
+  width: 28px;
   padding: 2px 0px;
   position: absolute;
   top: 25px;
   right: 25px;
   color: #fb5;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
 `;
 

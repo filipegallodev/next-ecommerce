@@ -1,7 +1,7 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { clearCart, closeCart } from "@/store/reducers/cart";
-import React from "react";
+import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import CartItem from "./CartItem";
 import CartItemContainer from "./CartItemContainer";
@@ -12,11 +12,22 @@ const CartModal = () => {
   const { empty, items, totalPrice } = useAppSelector(
     (state: IReduxState) => state.cart
   );
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  function handleCloseModal(event: React.MouseEvent) {
+    if (!(modalRef && modalRef.current)) return;
+    modalRef.current.classList.add("close");
+    setTimeout(() => {
+      if (!(modalRef && modalRef.current)) return;
+      modalRef.current.classList.remove("close");
+      dispatch(closeCart());
+    }, 210);
+  }
 
   return (
-    <ModalContainer>
+    <ModalContainer ref={modalRef}>
       <ModalControl>
-        <CloseModal onClick={() => dispatch(closeCart())}>
+        <CloseModal onClick={handleCloseModal}>
           <CloseRoundedIcon style={{ transform: "scale(1.2)" }} />
         </CloseModal>
         {!empty && (
@@ -57,6 +68,17 @@ const slideToLeft = keyframes`
   }
 `;
 
+const slideToRight = keyframes`
+  from {
+    transform: initial;
+    opacity: initial;
+  }
+  to {
+    transform: translateX(520px);
+    opacity: 0;
+  }
+`;
+
 const ModalContainer = styled.div`
   position: fixed;
   top: 0;
@@ -68,6 +90,9 @@ const ModalContainer = styled.div`
   animation: ${slideToLeft} 0.2s linear forwards;
   overflow-y: auto;
   z-index: 99999;
+  &.close {
+    animation: ${slideToRight} 0.2s linear forwards;
+  }
   @media (max-width: 580px) {
     width: 100%;
   }
