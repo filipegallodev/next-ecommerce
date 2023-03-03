@@ -13,6 +13,7 @@ import Rating from "@mui/material/Rating";
 import { BuyButton, RatingContainer } from "@/components/Product/ProductCard";
 import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
 import { addProduct } from "@/store/reducers/cart";
+import PageContainer from "@/components/PageContainer";
 
 const Product = () => {
   const router = useRouter();
@@ -61,46 +62,48 @@ const Product = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-
-      <MainContainer>
-        <ReturnButton onClick={router.back}>
-          <ArrowBackIosNewRoundedIcon />
-        </ReturnButton>
-        <ProductSection>
-          <ImageContainer>
-            <Image src={product.image} alt={product.title} />
-          </ImageContainer>
-          <InfoContainer>
-            <div>
-              <Category>{product.category.toUpperCase()}</Category>
-              <Title>{product.title}</Title>
-              <RatingContainer>
-                {product.rating.rate}
-                <Rating
-                  name="half-rating-read"
-                  defaultValue={product.rating.rate}
-                  precision={0.5}
-                  readOnly
-                />
-                {product.rating.count}
-              </RatingContainer>
-              <Description>{product.description}</Description>
-            </div>
-            <BuyButton
-              style={{ borderRadius: "6px" }}
-              ref={buyButton}
-              onClick={handleBuyButton}
-              disabled={addedOnCart}
-            >
-              <AddShoppingCartRoundedIcon />
-              {buttonText}
-            </BuyButton>
-          </InfoContainer>
-        </ProductSection>
-      </MainContainer>
-
-      <Footer />
+      <PageContainer>
+        <div>
+          <Header />
+          <MainContainer>
+            <ReturnButton onClick={router.back}>
+              <ArrowBackIosNewRoundedIcon />
+            </ReturnButton>
+            <ProductSection>
+              <ImageContainer>
+                <Image src={product.image} alt={product.title} />
+              </ImageContainer>
+              <InfoContainer>
+                <div>
+                  <Category>{product.category.toUpperCase()}</Category>
+                  <Title>{product.title}</Title>
+                  <RatingContainer>
+                    {product.rating.rate}
+                    <Rating
+                      name="half-rating-read"
+                      defaultValue={product.rating.rate}
+                      precision={0.5}
+                      readOnly
+                    />
+                    {product.rating.count}
+                  </RatingContainer>
+                  <Description>{product.description}</Description>
+                </div>
+                <BuyButton
+                  style={{ borderRadius: "6px" }}
+                  ref={buyButton}
+                  onClick={handleBuyButton}
+                  disabled={addedOnCart}
+                >
+                  <AddShoppingCartRoundedIcon />
+                  {buttonText}
+                </BuyButton>
+              </InfoContainer>
+            </ProductSection>
+          </MainContainer>
+        </div>
+        <Footer />
+      </PageContainer>
     </>
   );
 };

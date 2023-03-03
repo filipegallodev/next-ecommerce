@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import ProductSection from "@/components/Product/ProductSection";
 import styled from "styled-components";
 import Footer from "@/components/Footer";
+import PageContainer from "@/components/PageContainer";
 
 export default function Home() {
   return (
@@ -14,14 +15,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <main>
-        <SectionContainer>
-          <SubTitle>Best deals</SubTitle>
-          <ProductSection />
-        </SectionContainer>
-      </main>
-      <Footer />
+      <PageContainer>
+        <div>
+          <Header />
+          <main>
+            <SectionContainer>
+              <SubTitle>Best deals</SubTitle>
+              <ProductSection />
+            </SectionContainer>
+          </main>
+        </div>
+        <Footer />
+      </PageContainer>
     </>
   );
 }
