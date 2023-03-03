@@ -135,9 +135,11 @@ const ProductSection = styled.section`
   width: 100%;
   display: flex;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 32px;
   box-sizing: border-box;
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -171,7 +173,7 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (max-width: 370px) {
+  @media (max-width: 610px) {
     height: auto;
   }
 `;

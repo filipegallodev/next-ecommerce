@@ -14,7 +14,7 @@ const CartModal = () => {
   );
   const modalRef = useRef<HTMLDivElement>(null);
 
-  function handleCloseModal(event: React.MouseEvent) {
+  function handleCloseModal() {
     if (!(modalRef && modalRef.current)) return;
     modalRef.current.classList.add("close");
     setTimeout(() => {
