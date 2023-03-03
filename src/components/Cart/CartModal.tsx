@@ -68,6 +68,9 @@ const ModalContainer = styled.div`
   animation: ${slideToLeft} 0.2s linear forwards;
   overflow-y: auto;
   z-index: 99999;
+  @media (max-width: 580px) {
+    width: 100%;
+  }
 `;
 
 const ModalControl = styled.div`
