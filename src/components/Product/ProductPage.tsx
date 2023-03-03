@@ -38,9 +38,12 @@ const ProductPage = () => {
 
   if (!product)
     return (
-      <ReturnButton onClick={router.back}>
-        <ArrowBackIosNewRoundedIcon />
-      </ReturnButton>
+      <MainContainer>
+        <ReturnButton onClick={router.back}>
+          <ArrowBackIosNewRoundedIcon />
+        </ReturnButton>
+        <Loading />
+      </MainContainer>
     );
   if (loading) return <Loading />;
   return (
