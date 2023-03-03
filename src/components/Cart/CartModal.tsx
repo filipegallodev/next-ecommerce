@@ -16,9 +16,9 @@ const CartModal = () => {
   return (
     <ModalContainer>
       <ModalControl>
-        <ExitButton onClick={() => dispatch(closeCart())}>
+        <CloseModal onClick={() => dispatch(closeCart())}>
           <CloseRoundedIcon style={{ transform: "scale(1.2)" }} />
-        </ExitButton>
+        </CloseModal>
         {!empty && (
           <ClearCart onClick={() => dispatch(clearCart())}>Clear All</ClearCart>
         )}
@@ -77,7 +77,7 @@ const ModalControl = styled.div`
   margin: 1rem;
 `;
 
-const ExitButton = styled.button`
+const CloseModal = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -29,6 +29,9 @@ const Cart = () => {
 };
 
 const CartButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 14px 16px;
   background-color: #f5f5f5;
   color: #333;
