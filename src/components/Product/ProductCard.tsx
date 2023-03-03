@@ -93,6 +93,9 @@ const ProductContainer = styled.li`
   &:hover {
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3);
   }
+  @media (max-width: 490px) {
+    width: 90%;
+  }
 `;
 
 const MainContent = styled.div`
@@ -116,6 +119,9 @@ const Image = styled.img`
   grid-area: 1/1;
   margin: 24px auto;
   max-height: 172px;
+  @media (max-width: 400px) {
+    max-height: 120px;
+  }
 `;
 
 const skeleton = keyframes`
