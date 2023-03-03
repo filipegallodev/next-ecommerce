@@ -23,6 +23,7 @@ const FooterText = styled.p`
   text-align: center;
   margin: 64px;
   font-size: 1.125rem;
+  line-height: 1.5rem;
 `;
 
 const NameLink = styled.a`
