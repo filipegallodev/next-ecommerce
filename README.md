@@ -30,7 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 This is the main page of the ecommerce, here you can scroll with the mouse and see the products that are being selling.
 
 ### Product Card
-> More upcoming...
+> Upcoming...
 
 ## ❓ Status: 
 In Development.
