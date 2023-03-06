@@ -128,6 +128,13 @@ const ControlAmount = styled.div`
   justify-content: center;
   gap: 8px;
   font-size: 1.125rem;
+  & svg {
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      color: #777;
+    }
+  }
 `;
 
 const Amount = styled.span`
