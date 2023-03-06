@@ -10,6 +10,7 @@ const ItemContainer = styled.ul`
   flex-direction: column;
   gap: 12px;
   padding: 32px;
+  margin-bottom: 32px;
 `;
 
 export default CartItemContainer;
