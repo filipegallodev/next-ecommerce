@@ -2,7 +2,7 @@
 > Cover coming soon.
 
 ## 🎯 Objective
-Build a fictional ecommerce to practice my hard skills.
+The main objective of this project is build a ecommerce to practice my hard skills.
 
 ## 🛠 Technologies
 - ![Next.js](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -23,6 +23,14 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 💻 How to use
+### Main Page
+![Main Page](https://i.imgur.com/TU9zICg.png)
+This is the main page of the ecommerce, here you can scroll with the mouse and see the products that are being selling.
+
+### Product Card
+> More upcoming...
 
 ## ❓ Status: 
 In Development.
