@@ -5,13 +5,15 @@ import styled, { keyframes } from "styled-components";
 import Cart from "./Cart/Cart";
 import CartModal from "./Cart/CartModal";
 import NextIcon from "../../public/icons/next-icon.svg";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { cart } = useAppSelector((state: IReduxState) => state);
+  const router = useRouter();
 
   return (
     <HeaderContainer>
-      <Logo>
+      <Logo onClick={() => router.push("/")}>
         <Image
           src={NextIcon}
           alt="Next E-commerce Icon"
@@ -58,6 +60,7 @@ const Logo = styled.div`
   display: flex;
   gap: 1rem;
   animation: ${slideToRight} 0.5s linear forwards;
+  cursor: pointer;
   @media (max-width: 500px) {
     align-items: center;
     justify-content: center;
