@@ -30,7 +30,7 @@ const NameLink = styled.a`
   color: #fff;
   font-weight: 600;
   background-color: #111;
-  padding: 2px;
+  padding: 2px 4px;
   border-radius: 4px;
   transition: 0.3s;
   &:hover {

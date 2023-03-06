@@ -34,8 +34,12 @@ const CartButton = styled.button`
   justify-content: center;
   padding: 14px 16px;
   background-color: #f5f5f5;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   color: #333;
   border-radius: 8px;
+  position: fixed;
+  right: 32px;
+  top: 32px;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
@@ -45,10 +49,9 @@ const CartButton = styled.button`
   }
   @media (max-width: 500px) {
     position: fixed;
-    right: 8px;
-    top: 8px;
+    right: 10px;
+    top: 10px;
     z-index: 9999999;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   }
 `;
 
@@ -59,15 +62,15 @@ const CartItemAmount = styled.span`
   width: 28px;
   padding: 2px 0px;
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: -8px;
+  right: -8px;
   color: #fb5;
   font-size: 1rem;
   font-weight: 500;
   @media (max-width: 500px) {
     position: fixed;
-    right: 2px;
-    top: 2px;
+    right: 3px;
+    top: 3px;
     z-index: 9;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   }
