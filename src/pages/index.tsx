@@ -68,7 +68,7 @@ const PosterContainer = styled.div`
   max-width: max-content;
   width: 100%;
   height: auto;
-  background-color: #fff;
+  background-color: #f6fcff;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
   & img {
@@ -95,9 +95,9 @@ const SectionContainer = styled.section`
   align-items: flex-start;
   justify-content: center;
   margin: 32px auto;
-  background-color: #eee;
+  background-color: #e2edf5;
   padding-bottom: 2rem;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
   @media (max-width: 1600px) {
     margin: 32px;

@@ -56,7 +56,7 @@ const ItemCard = styled.li`
   display: flex;
   align-items: flex-start;
   height: 160px;
-  background-color: #eee;
+  background-color: #e9eef1;
   border-radius: 4px;
   overflow: hidden;
   animation: ${slideToRight} 0.2s linear forwards;

@@ -79,7 +79,7 @@ const fade = keyframes`
 `;
 
 const ProductContainer = styled.li`
-  background-color: #f5f5f5;
+  background-color: #e9eef1;
   height: 400px;
   width: 360px;
   border-radius: 8px;
@@ -99,7 +99,6 @@ const ProductContainer = styled.li`
 `;
 
 const MainContent = styled.div`
-  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,7 +185,7 @@ export const BuyButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #424fc2;
+  background-color: #3886bb;
   width: 100%;
   padding: 16px;
   color: #fff;
@@ -195,7 +194,7 @@ export const BuyButton = styled.button`
   transition: 0.1s;
   cursor: pointer;
   &:hover {
-    background-color: #1a29b1;
+    background-color: #055c96;
   }
   &:disabled {
     background-color: #333;
