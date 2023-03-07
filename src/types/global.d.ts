@@ -26,7 +26,13 @@ interface IProductState {
   error: null | string;
 }
 
+interface IProductFavorites {
+  empty: boolean;
+  items: IProduct[];
+}
+
 interface IReduxState {
   product: IProductState;
   cart: ICart;
+  favorite: IProductFavorites;
 }

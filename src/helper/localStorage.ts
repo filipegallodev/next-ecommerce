@@ -1,5 +1,11 @@
+// Common function
+const verifyIfWindowExists = () => {
+  return typeof window !== "undefined";
+};
+
+// Manage local storage data of the Cart
 export const saveCart = (products: IProduct[], totalPrice: number) => {
-  if (products && typeof window !== "undefined")
+  if (products && verifyIfWindowExists())
     return localStorage.setItem(
       "next-cart",
       JSON.stringify({
@@ -10,17 +16,27 @@ export const saveCart = (products: IProduct[], totalPrice: number) => {
 };
 
 export const loadCartItems = () => {
-  if (typeof window !== "undefined") {
+  if (verifyIfWindowExists()) {
     const localCart = localStorage.getItem("next-cart");
-    if (localCart && JSON.parse(localCart).items.length) return JSON.parse(localCart).items;
+    if (localCart && JSON.parse(localCart).items.length)
+      return JSON.parse(localCart).items;
     return null;
   }
 };
 
 export const loadCartPrice = () => {
-  if (typeof window !== "undefined") {
+  if (verifyIfWindowExists()) {
     const localCart = localStorage.getItem("next-cart");
     if (localCart) return JSON.parse(localCart).totalPrice;
     return 0;
+  }
+};
+
+// Manage local storage data of the Favorites
+export const loadFavoriteItems = () => {
+  if (verifyIfWindowExists()) {
+    const localFavorites = localStorage.getItem("favorite-items");
+    if (localFavorites) return JSON.parse(localFavorites);
+    return null;
   }
 };

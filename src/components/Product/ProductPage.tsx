@@ -10,6 +10,7 @@ import { addProduct } from "@/store/reducers/cart";
 import { fetchOneProduct } from "@/store/reducers/product";
 import Loading from "../Loading";
 import { Rating } from "@mui/material";
+import ProductFavoriteIcon from "./ProductFavoriteIcon";
 
 const ProductPage = () => {
   const router = useRouter();
@@ -57,18 +58,23 @@ const ProductPage = () => {
         </ImageContainer>
         <InfoContainer>
           <div>
-            <Category>{product.category.toUpperCase()}</Category>
-            <Title>{product.title}</Title>
-            <RatingContainer>
-              {product.rating.rate}
-              <Rating
-                name="half-rating-read"
-                defaultValue={product.rating.rate}
-                precision={0.5}
-                readOnly
-              />
-              {product.rating.count}
-            </RatingContainer>
+            <ProductHeader>
+              <div>
+                <Category>{product.category.toUpperCase()}</Category>
+                <Title>{product.title}</Title>
+                <RatingContainer>
+                  {product.rating.rate}
+                  <Rating
+                    name="half-rating-read"
+                    defaultValue={product.rating.rate}
+                    precision={0.5}
+                    readOnly
+                  />
+                  {product.rating.count}
+                </RatingContainer>
+              </div>
+              <ProductFavoriteIcon {...product} />
+            </ProductHeader>
             <Description>{product.description}</Description>
           </div>
           <BuyButton
@@ -156,6 +162,15 @@ const InfoContainer = styled.div`
   justify-content: space-between;
   @media (max-width: 610px) {
     height: auto;
+  }
+`;
+
+const ProductHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & div:last-child {
+    position: static;
   }
 `;
 

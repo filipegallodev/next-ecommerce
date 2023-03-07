@@ -5,6 +5,7 @@ import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
 import Rating from "@mui/material/Rating";
+import ProductFavoriteIcon from "./ProductFavoriteIcon";
 
 const ProductCard = (data: IProduct) => {
   const { title, price, image, rating, id } = data;
@@ -29,6 +30,7 @@ const ProductCard = (data: IProduct) => {
 
   return (
     <ProductContainer>
+      <ProductFavoriteIcon {...data} />
       <MainContent onClick={() => router.push(`/product/${id}`)}>
         <ImageContainer>
           {imageLoading && <ImageSkeleton />}
