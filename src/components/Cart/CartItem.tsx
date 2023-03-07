@@ -135,6 +135,12 @@ const ControlAmount = styled.div`
       color: #777;
     }
   }
+  & svg:first-child {
+    color: #f55;
+  }
+  & svg:last-child {
+    color: #559fff;
+  }
 `;
 
 const Amount = styled.span`
