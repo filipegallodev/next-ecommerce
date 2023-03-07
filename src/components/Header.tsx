@@ -21,6 +21,14 @@ const Header = () => {
         />
         <MainTitle>Next E-commerce</MainTitle>
       </Logo>
+      <div>
+        <nav>
+          <NavMenu>
+            <MenuItem>Home</MenuItem>
+            <MenuItem>Favorites</MenuItem>
+          </NavMenu>
+        </nav>
+      </div>
       {!cart.open && <Cart />}
       {cart.open && <CartModal />}
     </HeaderContainer>
@@ -35,10 +43,10 @@ const HeaderContainer = styled.header`
   padding: 32px;
   background-color: #1b4f72;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-  @media (max-width: 500px) {
+  @media (max-width: 730px) {
     height: auto;
     flex-direction: column;
-    padding: 64px 32px;
+    padding: 64px 32px 32px 32px;
   }
 `;
 
@@ -61,6 +69,9 @@ const Logo = styled.div`
   gap: 1rem;
   animation: ${slideToRight} 0.5s linear forwards;
   cursor: pointer;
+  @media (max-width: 730px) {
+    margin-bottom: 64px;
+  }
   @media (max-width: 500px) {
     align-items: center;
     justify-content: center;
@@ -74,6 +85,25 @@ const MainTitle = styled.h1`
   letter-spacing: 0.05rem;
   @media (max-width: 500px) {
     font-size: 1.75rem;
+  }
+`;
+
+const NavMenu = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 32px;
+`;
+
+const MenuItem = styled.li`
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.1s;
+  &:hover {
+    color: #fb5;
+  }
+  @media (max-width: 500px) {
+    font-size: 1.35rem;
   }
 `;
 

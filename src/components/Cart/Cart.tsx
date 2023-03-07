@@ -47,7 +47,7 @@ const CartButton = styled.button`
     color: #fb5;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   }
-  @media (max-width: 500px) {
+  @media (max-width: 730px) {
     position: fixed;
     right: 10px;
     top: 10px;
@@ -67,7 +67,7 @@ const CartItemAmount = styled.span`
   color: #fb5;
   font-size: 1rem;
   font-weight: 500;
-  @media (max-width: 500px) {
+  @media (max-width: 730px) {
     position: fixed;
     right: 3px;
     top: 3px;
