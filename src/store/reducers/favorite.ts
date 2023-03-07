@@ -1,16 +1,22 @@
-import { loadFavoriteItems } from "@/helper/localStorage";
+import {
+  loadFavoriteFromLocalStorage,
+  saveFavoriteOnLocalStorage,
+} from "@/helper/localStorage";
 import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
   name: "favorite",
   initialState: {
-    empty: loadFavoriteItems() ? false : true,
-    items: loadFavoriteItems() ? loadFavoriteItems() : <IProduct[]>[],
+    empty: loadFavoriteFromLocalStorage() ? false : true,
+    items: loadFavoriteFromLocalStorage()
+      ? loadFavoriteFromLocalStorage()
+      : <IProduct[]>[],
   },
   reducers: {
     saveFavorite(state, action) {
       state.items.push(action.payload);
       state.empty = false;
+      saveFavoriteOnLocalStorage(state.items);
     },
     removeFavorite(state, action) {
       state.items = state.items.filter(

@@ -33,7 +33,13 @@ export const loadCartPrice = () => {
 };
 
 // Manage local storage data of the Favorites
-export const loadFavoriteItems = () => {
+export const saveFavoriteOnLocalStorage = (products: IProduct[]) => {
+  if (verifyIfWindowExists()) {
+    localStorage.setItem("favorite-items", JSON.stringify(products));
+  }
+};
+
+export const loadFavoriteFromLocalStorage = () => {
   if (verifyIfWindowExists()) {
     const localFavorites = localStorage.getItem("favorite-items");
     if (localFavorites) return JSON.parse(localFavorites);
