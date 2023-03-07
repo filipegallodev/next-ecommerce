@@ -1,9 +1,12 @@
 import Head from "next/head";
 import Header from "@/components/Header";
 import ProductSection from "@/components/Product/ProductSection";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Footer from "@/components/Footer";
 import PageContainer from "@/components/PageContainer";
+import Image from "next/image";
+import LeftPoster from "../../public/images/left-poster.webp";
+import RightPoster from "../../public/images/right-poster.webp";
 
 export default function Home() {
   return (
@@ -19,6 +22,20 @@ export default function Home() {
         <div>
           <Header />
           <main>
+            <PosterContainer>
+              <Image
+                src={LeftPoster}
+                alt="Next E-commerce homepage!"
+                width={2000}
+                height={2000}
+              />
+              <Image
+                src={RightPoster}
+                alt="Next E-commerce homepage!"
+                width={2000}
+                height={2000}
+              />
+            </PosterContainer>
             <SectionContainer>
               <SubTitle>Best deals</SubTitle>
               <ProductSection />
@@ -30,6 +47,46 @@ export default function Home() {
     </>
   );
 }
+
+const fadeAnime = keyframes`
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: initial;
+    opacity: 1;
+  }
+`;
+
+const PosterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  max-width: max-content;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  & img {
+    max-width: 40vw;
+    height: auto;
+    border-radius: 6px;
+    animation: ${fadeAnime} 0.3s linear forwards;
+  }
+  @media (max-width: 1290px) {
+    max-width: max-content;
+    & img {
+      max-width: 48vw;
+    }
+  }
+  @media (max-width: 600px) {
+    gap: 0.15rem;
+  }
+`;
 
 const SectionContainer = styled.section`
   max-width: 1600px;

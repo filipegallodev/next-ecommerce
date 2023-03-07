@@ -51,7 +51,7 @@ const CartButton = styled.button`
     position: fixed;
     right: 10px;
     top: 10px;
-    z-index: 9999999;
+    z-index: 9999999999999;
   }
 `;
 
