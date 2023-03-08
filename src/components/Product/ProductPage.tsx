@@ -75,7 +75,13 @@ const ProductPage = () => {
               </div>
               <ProductFavoriteIcon {...product} />
             </ProductHeader>
-            <Description>{product.description}</Description>
+            <Description>
+              {product.description
+                .replace(/(\,\s|\,)/g, ", ")
+                .replace(/\.\,/g, ".")
+                .replace(/(\%\s|\%)/g, "% ")
+                .replace(/(\s\/\s|\/)/g, " / ")}
+            </Description>
           </div>
           <BuyButton
             style={{ borderRadius: "6px" }}
