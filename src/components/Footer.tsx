@@ -20,21 +20,22 @@ const Footer = () => {
 };
 
 const FooterText = styled.p`
+  margin-top: 64px;
   text-align: center;
-  margin: 64px;
+  padding: 64px;
+  background-color: #333;
   font-size: 1.125rem;
   line-height: 1.5rem;
+  color: #fff;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 `;
 
 const NameLink = styled.a`
-  color: #fff;
   font-weight: 600;
-  background-color: #111;
-  padding: 2px 4px;
-  border-radius: 4px;
-  transition: 0.3s;
+  color: #ffd69a;
+  transition: 0.2s;
   &:hover {
-    color: #fb5;
+    color: #ffb23f;
   }
 `;
 

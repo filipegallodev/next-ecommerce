@@ -14,7 +14,7 @@ const Favorites = () => {
         <title>Next E-commerce | Favorites</title>
         <meta
           name="description"
-          content="Next E-commerce | My favorites page."
+          content="Next E-commerce | Favorite products page."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
