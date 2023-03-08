@@ -13,7 +13,7 @@ const ProductFavoriteContainer = () => {
     return (
       <Container>
         <EmptyFavoriteMessage>
-          You don't have any favorite products!
+          You don{"'"}t have any favorite products!
         </EmptyFavoriteMessage>
       </Container>
     );

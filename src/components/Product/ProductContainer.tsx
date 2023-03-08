@@ -16,7 +16,7 @@ const ProductContainer = () => {
   useEffect(() => {
     if (data) return;
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, [dispatch, data]);
 
   if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
