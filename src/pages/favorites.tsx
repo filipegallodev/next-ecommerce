@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageContainer from "@/components/PageContainer";
 import ProductSection from "@/components/Product/ProductSection";
 import SectionTitle from "@/components/SectionTitle";
+import ProductFavoriteContainer from "@/components/Product/ProductFavoriteContainer";
 
 const Favorites = () => {
   return (
@@ -25,6 +26,7 @@ const Favorites = () => {
           <main>
             <ProductSection>
               <SectionTitle>My favorites</SectionTitle>
+              <ProductFavoriteContainer />
             </ProductSection>
           </main>
         </div>

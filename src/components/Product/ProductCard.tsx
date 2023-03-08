@@ -29,7 +29,7 @@ const ProductCard = (data: IProduct) => {
   }
 
   return (
-    <ProductContainer>
+    <Container>
       <ProductFavoriteIcon {...data} />
       <MainContent onClick={() => router.push(`/product/${id}`)}>
         <ImageContainer>
@@ -67,7 +67,7 @@ const ProductCard = (data: IProduct) => {
         <AddShoppingCartRoundedIcon />
         {buttonText}
       </BuyButton>
-    </ProductContainer>
+    </Container>
   );
 };
 
@@ -80,7 +80,8 @@ const fade = keyframes`
   }
 `;
 
-const ProductContainer = styled.li`
+const Container = styled.li`
+  align-self: flex-start;
   background-color: #e9eef1;
   height: 400px;
   width: 360px;
