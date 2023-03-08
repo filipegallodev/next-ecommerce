@@ -24,12 +24,22 @@ const Header = () => {
       <div>
         <nav>
           <NavMenu>
-            <MenuItem>Home</MenuItem>
-            <MenuItem>Favorites</MenuItem>
+            <MenuItem
+              className={router.pathname === "/" ? "active" : ""}
+              onClick={() => router.push("/")}
+            >
+              Home
+            </MenuItem>
+            <MenuItem
+              className={router.pathname === "/favorites" ? "active" : ""}
+              onClick={() => router.push("/favorites")}
+            >
+              Favorites
+            </MenuItem>
           </NavMenu>
         </nav>
       </div>
-      {!cart.open && <Cart />}
+      {!cart.open ? <Cart /> : <div></div>}
       {cart.open && <CartModal />}
     </HeaderContainer>
   );
@@ -99,6 +109,10 @@ const MenuItem = styled.li`
   font-size: 1.5rem;
   cursor: pointer;
   transition: 0.1s;
+  &.active {
+    color: #fb5;
+    font-weight: 500;
+  }
   &:hover {
     color: #fb5;
   }
