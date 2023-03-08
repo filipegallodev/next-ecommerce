@@ -1,12 +1,14 @@
 import Head from "next/head";
 import Header from "@/components/Header";
-import ProductSection from "@/components/Product/ProductSection";
+import ProductContainer from "@/components/Product/ProductContainer";
 import styled, { keyframes } from "styled-components";
 import Footer from "@/components/Footer";
 import PageContainer from "@/components/PageContainer";
 import Image from "next/image";
 import LeftPoster from "../../public/images/left-poster.webp";
 import RightPoster from "../../public/images/right-poster.webp";
+import ProductSection from "@/components/Product/ProductSection";
+import SectionTitle from "@/components/SectionTitle";
 
 export default function Home() {
   return (
@@ -36,10 +38,10 @@ export default function Home() {
                 height={2000}
               />
             </PosterContainer>
-            <SectionContainer>
-              <SubTitle>Best deals</SubTitle>
-              <ProductSection />
-            </SectionContainer>
+            <ProductSection>
+              <SectionTitle>Best deals</SectionTitle>
+              <ProductContainer />
+            </ProductSection>
           </main>
         </div>
         <Footer />
@@ -85,35 +87,5 @@ const PosterContainer = styled.div`
   }
   @media (max-width: 600px) {
     gap: 0.15rem;
-  }
-`;
-
-const SectionContainer = styled.section`
-  max-width: 1600px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 32px auto;
-  background-color: #e2edf5;
-  padding-bottom: 2rem;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-  @media (max-width: 1600px) {
-    margin: 32px;
-  }
-`;
-
-const SubTitle = styled.h2`
-  font-size: 1.75rem;
-  margin: 2rem 1rem;
-  font-weight: 500;
-  &:before {
-    content: "";
-    margin-right: 0.5rem;
-    width: 20px;
-    height: 4px;
-    padding: 2px;
-    background-color: #f2bf24;
   }
 `;
