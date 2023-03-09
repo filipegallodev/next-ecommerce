@@ -56,4 +56,4 @@ You can access the cart by the cart icon in the top right corner in the screen. 
 You can control the amount of the product to buy or remove the product.
 
 ## ❓ Status: 
-In Development.
+The project is finished, but I will come with updates in the code and more features in the future.
