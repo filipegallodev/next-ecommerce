@@ -1,5 +1,5 @@
 # 🛒 Next E-commerce
-> Cover coming soon.
+![Project Cover](https://i.imgur.com/fsUQ1Lc.png)
 
 ## 🎯 Objective
 The main objective of this project is build a ecommerce to practice my hard skills.
