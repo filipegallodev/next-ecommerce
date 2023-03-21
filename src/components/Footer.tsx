@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <FooterText>
-        Desenvolvido por{" "}
+        Developed by{" "}
         <NameLink
           href="https://filipegallo.dev/"
           target="_blank"
